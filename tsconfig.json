@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "lib/esm",
+    "jsx": "react-native",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution":"node",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+  }
+}
