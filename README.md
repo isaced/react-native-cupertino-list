@@ -2,7 +2,9 @@
 
 A Cupertino/iOS list for a React Native.
 
-<img src="https://raw.githubusercontent.com/isaced/react-native-sortable-listview/master/screenshot.jpg" width="350">
+
+
+<img src="https://raw.githubusercontent.com/isaced/react-native-cupertino-list/main/screenshot.jpg" width="350">
 
 ## Install
 
