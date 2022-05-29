@@ -1,0 +1,29 @@
+{
+  "name": "react-native-cupertino-list",
+  "version": "0.0.1",
+  "description": "a Cupertino/iOS list for a React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaced/react-native-cupertino-list.git"
+  },
+  "keywords": [
+    "cupertino",
+    "react-native",
+    "react-native-component"
+  ],
+  "author": "isaced",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaced/react-native-cupertino-list/issues"
+  },
+  "homepage": "https://github.com/isaced/react-native-cupertino-list",
+  "devDependencies": {
+    "react": "^17.0.2",
+    "react-native": "^0.68.2",
+    "react-native-vector-icons": "^9.1.0"
+  }
+}
