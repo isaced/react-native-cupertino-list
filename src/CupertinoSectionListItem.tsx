@@ -1,9 +1,9 @@
-import React from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {TouchableHighlight, View, GestureResponderEvent} from 'react-native';
-import {cupertinoColor} from './utils';
-import {CupertinoText} from './CupertinoText';
-import {ITEM_START_WIDTH, BORDER_RADIUS} from './constants';
+import React from "react";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { TouchableHighlight, View, GestureResponderEvent } from "react-native";
+import { cupertinoColor } from "./utils";
+import { CupertinoText } from "./CupertinoText";
+import { ITEM_START_WIDTH, BORDER_RADIUS } from "./constants";
 
 type Props = {
   title?: string;
@@ -24,19 +24,19 @@ export const CupertinoSectionListItem = ({
   isLast,
   onPress,
 }: Props) => {
-  const iconName = typeof icon === 'string' ? icon : (icon || {}).name;
+  const iconName = typeof icon === "string" ? icon : (icon || {}).name;
   const iconColor =
-    (icon || {}).color ?? cupertinoColor('systemBlue', '#007AFE');
+    (icon || {}).color ?? cupertinoColor("systemBlue", "#007AFE");
   return (
     <TouchableHighlight
-      underlayColor={cupertinoColor('systemGray5', '#d1d1d6')}
+      underlayColor={cupertinoColor("systemGray5", "#d1d1d6")}
       style={[
         {
           flex: 1,
-          flexDirection: 'row',
+          flexDirection: "row",
           backgroundColor: cupertinoColor(
-            'secondarySystemGroupedBackground',
-            '#fff',
+            "secondarySystemGroupedBackground",
+            "#fff"
           ),
         },
         isFirst && {
@@ -48,33 +48,38 @@ export const CupertinoSectionListItem = ({
           borderBottomRightRadius: BORDER_RADIUS,
         },
       ]}
-      onPress={onPress}>
+      onPress={onPress}
+    >
       <View
         style={{
           flex: 1,
-          flexDirection: 'row',
-        }}>
+          flexDirection: "row",
+        }}
+      >
         <View
           style={{
             flex: 1,
-            justifyContent: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center",
             maxWidth: ITEM_START_WIDTH,
-          }}>
+          }}
+        >
           <Ionicons size={24} color={iconColor} name={iconName} />
         </View>
         <View
           style={{
             flex: 1,
-          }}>
+          }}
+        >
           <CupertinoText
-            systemColor={'label'}
-            defaultColor={'#000'}
+            systemColor={"label"}
+            defaultColor={"#000"}
             style={{
               paddingVertical: 14,
               fontSize: 18,
-            }}>
+            }}
+          >
             {title}
           </CupertinoText>
         </View>
@@ -83,29 +88,31 @@ export const CupertinoSectionListItem = ({
             style={{
               flex: 1,
               maxWidth: 90,
-              justifyContent: 'flex-end',
-              alignItems: 'center',
+              justifyContent: "flex-end",
+              alignItems: "center",
               paddingRight: 13,
-              flexDirection: 'row',
-            }}>
+              flexDirection: "row",
+            }}
+          >
             {forward.title && (
               <CupertinoText
-                systemColor={'secondaryLabel'}
-                defaultColor={'#8A898E'}
+                systemColor={"secondaryLabel"}
+                defaultColor={"#8A898E"}
                 style={{
                   fontSize: 18,
-                  color: '#8A898E',
-                  textAlign: 'right',
+                  color: "#8A898E",
+                  textAlign: "right",
                   marginRight: 8,
-                }}>
+                }}
+              >
                 {forward.title}
               </CupertinoText>
             )}
             {forward.iconHidden || (
               <Ionicons
                 size={24}
-                color={cupertinoColor('tertiaryLabel', '#C4C4C6')}
-                name={'ios-chevron-forward'}
+                color={cupertinoColor("tertiaryLabel", "#C4C4C6")}
+                name={"ios-chevron-forward"}
               />
             )}
           </View>

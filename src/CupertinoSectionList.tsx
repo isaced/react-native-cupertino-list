@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   SectionList,
   View,
@@ -6,14 +6,17 @@ import {
   SectionListProps,
   SectionListRenderItem,
   GestureResponderEvent,
-} from 'react-native';
-import {CupertinoSectionListItem} from './CupertinoSectionListItem';
-import {CupertinoText} from './CupertinoText';
+} from "react-native";
+import { CupertinoSectionListItem } from "./CupertinoSectionListItem";
+import { CupertinoText } from "./CupertinoText";
 
 export type CupertinoSectionListProps = React.FC<
   SectionListProps<CupertinoCell, CupertinoSection> & {
     cellRender?: CupertinoCellRender;
     sectionRender?: CupertinoSectionRender;
+    onPress?:
+      | ((data: CupertinoCell, event: GestureResponderEvent) => void)
+      | undefined;
   }
 >;
 
@@ -46,40 +49,48 @@ export type CupertinoCellRender = SectionListRenderItem<
   CupertinoSection
 >;
 
-export const CupertinoSectionList: CupertinoSectionListProps = props => {
+export const CupertinoSectionList: CupertinoSectionListProps = (props) => {
   return (
     <SectionList
-      renderItem={info => {
+      renderItem={(info) => {
         return (
           info?.item?.render?.(info) || (
             <CupertinoSectionListItem
               {...info.item}
               isFirst={info.index === 0}
               isLast={info.section.data.length - 1 === info.index}
-              onPress={info.item.onPress}
+              onPress={
+                info.item.onPress ||
+                (props?.onPress &&
+                  ((event) => {
+                    props?.onPress?.(info.item, event);
+                  }))
+              }
             />
           ) ||
           null
         );
       }}
-      renderSectionHeader={info => {
+      renderSectionHeader={(info) => {
         return (
           info.section.render?.(info) || (
             <View
               style={{
-                justifyContent: 'flex-end',
+                justifyContent: "flex-end",
                 paddingTop: 32,
                 paddingBottom: 16,
                 paddingLeft: 20,
-              }}>
+              }}
+            >
               {info.section.title && (
                 <CupertinoText
-                  systemColor={'label'}
-                  defaultColor={'#000'}
+                  systemColor={"label"}
+                  defaultColor={"#000"}
                   style={{
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                     fontSize: 20,
-                  }}>
+                  }}
+                >
                   {info.section.title}
                 </CupertinoText>
               )}

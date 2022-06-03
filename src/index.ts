@@ -1,2 +1,3 @@
 import { CupertinoSectionList } from "./CupertinoSectionList";
-export { CupertinoSectionList };
+import { cupertinoColor } from "./utils";
+export { CupertinoSectionList, cupertinoColor };

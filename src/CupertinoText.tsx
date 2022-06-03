@@ -1,6 +1,6 @@
-import React from 'react';
-import {ColorValue, Text, TextProps} from 'react-native';
-import {cupertinoColor} from './utils';
+import React from "react";
+import { ColorValue, Text, TextProps } from "react-native";
+import { cupertinoColor } from "./utils";
 
 type CupertinoTextProps = TextProps & {
   systemColor: string;
@@ -17,7 +17,7 @@ export const CupertinoText: React.FC<CupertinoTextProps> = ({
       {...props}
       style={[
         {
-          fontFamily: 'System',
+          fontFamily: "System",
           color: cupertinoColor(systemColor, defaultColor),
         },
         style,

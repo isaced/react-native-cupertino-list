@@ -5,11 +5,12 @@
     "lib": ["esnext"],
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution":"node",
+    "moduleResolution": "node",
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "declaration": true,
-    "forceConsistentCasingInFileNames": true,
-  }
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"]
 }
