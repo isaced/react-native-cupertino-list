@@ -1,10 +1,26 @@
-# react-native-cupertino-list
+<h1 align="center">
+    react-native-cupertino-list
+</h1>
 
-A Cupertino/iOS list for a React Native.
+<p align="center">
+  <strong>A Cupertino/iOS list for a React Native.</strong>
+</p>
 
+<p align="center">
+  <a href="https://github.com/facebook/react-native-cupertino-list/blob/HEAD/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="react-native-cupertino-list is released under the MIT license." />
+  </a>
+  <a href="https://www.npmjs.org/package/react-native-cupertino-list">
+    <img src="https://img.shields.io/npm/v/react-native-cupertino-list?color=brightgreen" alt="Current npm package version." />
+  </a>
+  <a href="[https://reactnative.dev/docs/contributing](https://github.com/isaced/react-native-cupertino-list/pulls)">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+</p>
 
-
-<img src="https://raw.githubusercontent.com/isaced/react-native-cupertino-list/main/screenshot.jpg" width="350">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/isaced/react-native-cupertino-list/main/screenshot.jpg" width="200">
+</p>
 
 ## Install
 
