@@ -22,6 +22,12 @@
   <img src="https://raw.githubusercontent.com/isaced/react-native-cupertino-list/main/screenshot.jpg" width="200">
 </p>
 
+## Feature
+
+- High-reduction iOS system design style (Cupertino)
+- Dark mode support
+- Easily customize icons based on [react-native-vector-image](https://github.com/oblador/react-native-vector-icons)
+
 ## Install
 
 npm
@@ -35,6 +41,8 @@ yarn
 ```
 yarn add react-native-cupertino-list
 ```
+
+> You also need to install [react-native-vector-image](https://github.com/oblador/react-native-vector-icons#installation) to display the icons.
 
 ## Usage
 
