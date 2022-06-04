@@ -4,18 +4,13 @@ import { TouchableHighlight, View, GestureResponderEvent } from "react-native";
 import { cupertinoColor } from "./utils";
 import { CupertinoText } from "./CupertinoText";
 import { ITEM_START_WIDTH, BORDER_RADIUS } from "./constants";
+import { CupertinoCell } from "./CupertinoSectionList";
 
-type Props = {
-  title?: string;
-  forward?: {
-    title?: string;
-    iconHidden?: boolean;
-  };
-  icon?: any;
+type Props = CupertinoCell & {
   isFirst?: any;
   isLast?: any;
-  onPress?: ((event: GestureResponderEvent) => void) | undefined;
 };
+
 export const CupertinoSectionListItem = ({
   title,
   forward,
@@ -24,9 +19,16 @@ export const CupertinoSectionListItem = ({
   isLast,
   onPress,
 }: Props) => {
-  const iconName = typeof icon === "string" ? icon : (icon || {}).name;
+  const iconName = typeof icon === "string" ? icon : icon?.name;
   const iconColor =
-    (icon || {}).color ?? cupertinoColor("systemBlue", "#007AFE");
+    (typeof icon === "string" ? undefined : (icon || {}).color) ??
+    cupertinoColor("systemBlue", "#007AFE");
+
+  const forwardIconName =
+    typeof forward?.icon === "string" ? forward.icon : forward?.icon?.name;
+  const forwardIconColor =
+    typeof forward?.icon === "object" ? forward.icon.color : undefined;
+
   return (
     <TouchableHighlight
       underlayColor={cupertinoColor("systemGray5", "#d1d1d6")}
@@ -65,7 +67,7 @@ export const CupertinoSectionListItem = ({
             maxWidth: ITEM_START_WIDTH,
           }}
         >
-          <Ionicons size={24} color={iconColor} name={iconName} />
+          {iconName && <Ionicons size={24} color={iconColor} name={iconName} />}
         </View>
         <View
           style={{
@@ -94,6 +96,13 @@ export const CupertinoSectionListItem = ({
               flexDirection: "row",
             }}
           >
+            {forwardIconName && (
+              <Ionicons
+                size={24}
+                color={forwardIconColor}
+                name={forwardIconName}
+              />
+            )}
             {forward.title && (
               <CupertinoText
                 systemColor={"secondaryLabel"}
@@ -108,7 +117,7 @@ export const CupertinoSectionListItem = ({
                 {forward.title}
               </CupertinoText>
             )}
-            {forward.iconHidden || (
+            {forward.arrowHidden || (
               <Ionicons
                 size={24}
                 color={cupertinoColor("tertiaryLabel", "#C4C4C6")}
