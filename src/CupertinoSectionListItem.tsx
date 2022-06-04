@@ -1,7 +1,7 @@
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TouchableHighlight, View, GestureResponderEvent } from "react-native";
-import { cupertinoColor } from "./utils";
+import { TouchableHighlight, View, ColorValue } from "react-native";
+import { cupertinoColor, parseIcon } from "./utils";
 import { CupertinoText } from "./CupertinoText";
 import { ITEM_START_WIDTH, BORDER_RADIUS } from "./constants";
 import { CupertinoCell } from "./CupertinoSectionList";
@@ -19,15 +19,8 @@ export const CupertinoSectionListItem = ({
   isLast,
   onPress,
 }: Props) => {
-  const iconName = typeof icon === "string" ? icon : icon?.name;
-  const iconColor =
-    (typeof icon === "string" ? undefined : (icon || {}).color) ??
-    cupertinoColor("systemBlue", "#007AFE");
-
-  const forwardIconName =
-    typeof forward?.icon === "string" ? forward.icon : forward?.icon?.name;
-  const forwardIconColor =
-    typeof forward?.icon === "object" ? forward.icon.color : undefined;
+  let iconInfo = parseIcon(icon);
+  let forwardIconInfo = parseIcon(forward?.icon);
 
   return (
     <TouchableHighlight
@@ -58,17 +51,22 @@ export const CupertinoSectionListItem = ({
           flexDirection: "row",
         }}
       >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            flexDirection: "row",
-            alignItems: "center",
-            maxWidth: ITEM_START_WIDTH,
-          }}
-        >
-          {iconName && <Ionicons size={24} color={iconColor} name={iconName} />}
-        </View>
+        {iconInfo && (
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              flexDirection: "row",
+              alignItems: "center",
+              maxWidth: ITEM_START_WIDTH,
+            }}
+          >
+            {iconInfo.name && (
+              <Ionicons size={24} color={iconInfo.color} name={iconInfo.name} />
+            )}
+            {iconInfo?.elment}
+          </View>
+        )}
         <View
           style={{
             flex: 1,
@@ -96,11 +94,11 @@ export const CupertinoSectionListItem = ({
               flexDirection: "row",
             }}
           >
-            {forwardIconName && (
+            {forwardIconInfo.name && (
               <Ionicons
                 size={24}
-                color={forwardIconColor}
-                name={forwardIconName}
+                color={forwardIconInfo.color}
+                name={forwardIconInfo.name}
               />
             )}
             {forward.title && (

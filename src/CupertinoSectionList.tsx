@@ -7,6 +7,7 @@ import {
   SectionListRenderItem,
   GestureResponderEvent,
   ColorValue,
+  ViewComponent,
 } from "react-native";
 import { CupertinoSectionListItem } from "./CupertinoSectionListItem";
 import { CupertinoText } from "./CupertinoText";
@@ -33,7 +34,8 @@ export type CupertinoSectionRender =
     }) => React.ReactElement | null)
   | undefined;
 
-export type CupertinoCellIcon = string | { name?: string; color?: ColorValue };
+export type CupertinoCellIconCustom = { name?: string; color?: ColorValue };
+export type CupertinoCellIcon = string | CupertinoCellIconCustom | JSX.Element;
 
 export type CupertinoCell = {
   title?: string;
