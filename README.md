@@ -13,6 +13,10 @@
   <a href="https://www.npmjs.org/package/react-native-cupertino-list">
     <img src="https://img.shields.io/npm/v/react-native-cupertino-list?color=brightgreen" alt="Current npm package version." />
   </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" alt="supports iOS" />
+  </a>
+    
   <a href="[https://reactnative.dev/docs/contributing](https://github.com/isaced/react-native-cupertino-list/pulls)">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
@@ -21,6 +25,8 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/isaced/react-native-cupertino-list/main/screenshot.jpg" width="200">
 </p>
+
+> Currently only tested on iOS.
 
 ## Feature
 
