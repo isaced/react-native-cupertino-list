@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <strong>A Cupertino/iOS list for a React Native.</strong>
+  <strong>A Cupertino/iOS list for React Native.</strong>
 </p>
 
 <p align="center">
@@ -27,6 +27,7 @@
 - High-reduction iOS system design style (Cupertino)
 - Dark mode support
 - Easily customize icons based on [react-native-vector-image](https://github.com/oblador/react-native-vector-icons)
+- Based on SectionList, supports all SectionList's own features (such as List header support, Pull to Refresh...)
 
 ## Install
 
@@ -58,7 +59,8 @@ export function HomeScreen() {
             data: [
               {
                 title: 'All Items',
-                icon: 'bulb-outline'
+                icon: 'bulb-outline',
+                forward: {}
               }
             ],
           },
@@ -67,6 +69,73 @@ export function HomeScreen() {
   );
 }
 ```
+
+### API
+
+#### CupertinoSectionList.sections
+
+| Property |              Description              |        Type       | Default |
+|:--------:|:-------------------------------------:|:-----------------:|:-------:|
+| title    | Title of this row                     | string            | -       |
+| icon     | Customized row icon (left)            | CupertinoCellIcon | -       |
+| forward  | The element on the right in this row  | ForwardType       | -       |
+| onPress  | Callback executed when select one row | function(event)   | -       |
+
+#### CupertinoCellIcon
+
+type: `string |  { name?: string; color?: ColorValue } | JSX.Element`
+
+1. string - render by react-native-vector-icons (Ionicons)
+
+```json
+{
+  "icon": "bulb-outline"
+}
+```
+
+2. if you want to customize the color
+
+```json
+{
+  "icon": {
+    "name": "bulb-outline"
+    "color": "#000"
+  }
+}
+```
+
+3. If you want to fully customize
+
+```jsx
+{
+  "icon": (
+    <View>...</View>
+  )
+}
+```
+
+#### ForwardType
+
+type: `{ title?: string; icon?: CupertinoCellIcon; arrowHidden?: boolean; }`
+
+| Property    | Description                                    | Type              | Default                     |
+|-------------|------------------------------------------------|-------------------|-----------------------------|
+| title       | Text displayed to the right of the current row | string            | -                           |
+| icon        | Icon displayed to the right of the current row | CupertinoCellIcon | ">" - `ios-chevron-forward` |
+| arrowHidden | hide the icon on the right                     | boolean           | false                       |
+
+example:
+
+```json
+{
+  "title": "22",
+  "icon": "ios-chevron-forward"
+}
+```
+
+### Custom Icon
+
+You can find the icon you need at [react-native-vector-icons directory](https://oblador.github.io/react-native-vector-icons/), fill the icon name into the `data.icon` field, note that only **Ionicons** are currently supported.
 
 ## Other
 
