@@ -1,10 +1,12 @@
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TouchableHighlight, View, ColorValue } from "react-native";
+import { TouchableHighlight, View, Animated, Text } from "react-native";
 import { cupertinoColor, parseIcon } from "./utils";
 import { CupertinoText } from "./CupertinoText";
 import { ITEM_START_WIDTH, BORDER_RADIUS } from "./constants";
 import { CupertinoCell } from "./CupertinoSectionList";
+
+import { RectButton, Swipeable } from "react-native-gesture-handler";
 
 type Props = CupertinoCell & {
   isFirst?: any;
@@ -18,11 +20,14 @@ export const CupertinoSectionListItem = ({
   isFirst,
   isLast,
   onPress,
+  enabledSwipeDelete,
+  onSwipeDelete,
 }: Props) => {
   let iconInfo = parseIcon(icon);
   let forwardIconInfo = parseIcon(forward?.icon);
+  const swipeableRef = React.useRef<Swipeable>();
 
-  return (
+  const Content = () => (
     <TouchableHighlight
       underlayColor={cupertinoColor("systemGray5", "#d1d1d6")}
       style={[
@@ -127,4 +132,38 @@ export const CupertinoSectionListItem = ({
       </View>
     </TouchableHighlight>
   );
+
+  if (enabledSwipeDelete) {
+    return (
+      <Swipeable
+        ref={swipeableRef}
+        friction={2}
+        leftThreshold={30}
+        rightThreshold={40}
+        renderRightActions={() => {
+          return (
+            <TouchableHighlight
+              style={{
+                width: 50,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#dd2d00",
+              }}
+              underlayColor={"#B71525"}
+              onPress={(event) => {
+                swipeableRef.current?.close();
+                onSwipeDelete?.(event);
+              }}
+            >
+              <Ionicons size={18} color={"white"} name={"trash"} />
+            </TouchableHighlight>
+          );
+        }}
+      >
+        <Content />
+      </Swipeable>
+    );
+  } else {
+    return <Content />;
+  }
 };

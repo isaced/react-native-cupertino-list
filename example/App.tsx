@@ -31,6 +31,7 @@ import {
   CupertinoSectionList,
   cupertinoColor,
 } from 'react-native-cupertino-list';
+import {Alert} from 'react-native';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -66,10 +67,21 @@ const App = () => {
                 title: 'Favorites',
                 forward: {title: '6'},
                 icon: 'ios-star-outline',
+                enabledSwipeDelete: true,
+                onSwipeDelete: () => {
+                  Alert.alert('swipe delete');
+                },
               },
               {
                 title: 'Share',
-                icon: 'ios-share-outline',
+                icon: (
+                  <View
+                    style={{
+                      width: 22,
+                      height: 22,
+                      backgroundColor: '#eee',
+                    }}></View>
+                ),
               },
             ],
           },

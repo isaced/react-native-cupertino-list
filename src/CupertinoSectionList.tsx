@@ -46,7 +46,9 @@ export type CupertinoCell = {
     icon?: CupertinoCellIcon;
     arrowHidden?: boolean;
   };
+  enabledSwipeDelete?: boolean;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
+  onSwipeDelete?: ((event: GestureResponderEvent) => void) | undefined;
   [key: string]: any;
 };
 
