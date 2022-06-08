@@ -1,6 +1,6 @@
 {
   "name": "react-native-cupertino-list",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a Cupertino/iOS list for a React Native",
   "main": "./src/index.ts",
   "files": [
@@ -30,8 +30,8 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-vector-icons": "*",
-    "react-native-gesture-handler": "*"
+    "react-native-gesture-handler": "*",
+    "react-native-vector-icons": "*"
   },
   "devDependencies": {
     "@types/react": "^17.0.2",
