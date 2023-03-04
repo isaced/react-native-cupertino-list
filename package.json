@@ -1,6 +1,6 @@
 {
   "name": "react-native-cupertino-list",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a Cupertino/iOS list for a React Native",
   "main": "./src/index.ts",
   "files": [
