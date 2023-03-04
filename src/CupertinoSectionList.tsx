@@ -15,6 +15,9 @@ import { CupertinoText } from "./CupertinoText";
 export type CupertinoSectionListProps = React.FC<
   SectionListProps<CupertinoCell, CupertinoSection> & {
     cellRender?: CupertinoCellRender;
+    cellTitleColor?: ColorValue;
+    cellBackgroundColor?: ColorValue;
+    cellUnderlayColor?: ColorValue;
     sectionRender?: CupertinoSectionRender;
     onPress?:
       | ((data: CupertinoCell, event: GestureResponderEvent) => void)
@@ -49,6 +52,9 @@ export type CupertinoCell = {
   enabledSwipeDelete?: boolean;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   onSwipeDelete?: ((event: GestureResponderEvent) => void) | undefined;
+  titleColor?: ColorValue;
+  backgroundColor?: ColorValue;
+  underlayColor?: ColorValue;
   [key: string]: any;
 };
 
@@ -74,6 +80,9 @@ export const CupertinoSectionList: CupertinoSectionListProps = (props) => {
                     props?.onPress?.(info.item, event);
                   }))
               }
+              titleColor={props?.cellTitleColor}
+              backgroundColor={props?.cellBackgroundColor}
+              underlayColor={props?.cellUnderlayColor}
             />
           ) ||
           null

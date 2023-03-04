@@ -22,6 +22,9 @@ export const CupertinoSectionListItem = ({
   onPress,
   enabledSwipeDelete,
   onSwipeDelete,
+  titleColor,
+  backgroundColor,
+  underlayColor,
 }: Props) => {
   let iconInfo = parseIcon(icon);
   let forwardIconInfo = parseIcon(forward?.icon);
@@ -29,15 +32,14 @@ export const CupertinoSectionListItem = ({
 
   const Content = () => (
     <TouchableHighlight
-      underlayColor={cupertinoColor("systemGray5", "#d1d1d6")}
+      underlayColor={underlayColor ?? cupertinoColor("systemGray5", "#d1d1d6")}
       style={[
         {
           flex: 1,
           flexDirection: "row",
-          backgroundColor: cupertinoColor(
-            "secondarySystemGroupedBackground",
-            "#fff"
-          ),
+          backgroundColor:
+            backgroundColor ??
+            cupertinoColor("secondarySystemGroupedBackground", "#fff"),
         },
         isFirst && {
           borderTopLeftRadius: BORDER_RADIUS,
@@ -83,6 +85,7 @@ export const CupertinoSectionListItem = ({
             style={{
               paddingVertical: 14,
               fontSize: 18,
+              color: titleColor ?? cupertinoColor("label", "#000"),
             }}
           >
             {title}
