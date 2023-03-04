@@ -18,6 +18,7 @@ export type CupertinoSectionListProps = React.FC<
     cellTitleColor?: ColorValue;
     cellBackgroundColor?: ColorValue;
     cellUnderlayColor?: ColorValue;
+    sectionTitleColor?: ColorValue;
     sectionRender?: CupertinoSectionRender;
     onPress?:
       | ((data: CupertinoCell, event: GestureResponderEvent) => void)
@@ -106,6 +107,7 @@ export const CupertinoSectionList: CupertinoSectionListProps = (props) => {
                   style={{
                     fontWeight: "bold",
                     fontSize: 20,
+                    color: props?.sectionTitleColor,
                   }}
                 >
                   {info.section.title}
