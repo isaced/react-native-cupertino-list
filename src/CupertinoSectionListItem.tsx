@@ -95,7 +95,7 @@ export const CupertinoSectionListItem = ({
           <View
             style={{
               flex: 1,
-              maxWidth: 90,
+              maxWidth: 150,
               justifyContent: "flex-end",
               alignItems: "center",
               paddingRight: 13,
@@ -114,7 +114,7 @@ export const CupertinoSectionListItem = ({
                 systemColor={"secondaryLabel"}
                 defaultColor={"#8A898E"}
                 style={{
-                  fontSize: 18,
+                  fontSize: 14,
                   color: "#8A898E",
                   textAlign: "right",
                   marginRight: 8,
